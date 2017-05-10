@@ -1,0 +1,60 @@
+|lattice
+clkin => gen_div:gen_100k.clk
+resetin => gen_div:gen_100k.reset
+resetin => cnt[0].ACLR
+resetin => cnt[1].ACLR
+resetin => cnt[2].ACLR
+cloumn[0] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[1] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[2] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[3] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[4] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[5] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[6] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+cloumn[7] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+row[0] <= <VCC>
+row[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+row[2] <= <VCC>
+row[3] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+row[4] <= <VCC>
+row[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+row[6] <= <VCC>
+row[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lattice|gen_div:gen_100k
+clk => tmp.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+clk => cnt[11].CLK
+clk => cnt[12].CLK
+clk => cnt[13].CLK
+clk => cnt[14].CLK
+reset => tmp.ACLR
+reset => cnt[0].ACLR
+reset => cnt[1].ACLR
+reset => cnt[2].ACLR
+reset => cnt[3].ACLR
+reset => cnt[4].ACLR
+reset => cnt[5].ACLR
+reset => cnt[6].ACLR
+reset => cnt[7].ACLR
+reset => cnt[8].ACLR
+reset => cnt[9].ACLR
+reset => cnt[10].ACLR
+reset => cnt[11].ACLR
+reset => cnt[12].ACLR
+reset => cnt[13].ACLR
+reset => cnt[14].ACLR
+bclk <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+

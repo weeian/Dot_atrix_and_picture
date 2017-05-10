@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clkin'
+Slack : -2.880
+TNS   : -40.051
+
+Type  : Setup 'gen_div:gen_100k|tmp'
+Slack : -0.364
+TNS   : -0.964
+
+Type  : Hold 'clkin'
+Slack : -0.895
+TNS   : -0.895
+
+Type  : Hold 'gen_div:gen_100k|tmp'
+Slack : 1.047
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clkin'
+Slack : -1.583
+TNS   : -43.759
+
+Type  : Minimum Pulse Width 'gen_div:gen_100k|tmp'
+Slack : -1.318
+TNS   : -7.908
+
+------------------------------------------------------------
