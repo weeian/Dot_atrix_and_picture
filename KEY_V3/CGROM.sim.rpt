@@ -1,0 +1,309 @@
+Simulator report for CGROM
+Sun Feb 07 22:59:23 2010
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 100.0 us     ;
+; Simulation Netlist Size     ; 139 nodes    ;
+; Simulation Coverage         ;      88.32 % ;
+; Total Number of Transitions ; 14109        ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; MAX II       ;
+; Device                      ; EPM240T100C5 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Glitch Filtering                                                                           ; Off        ; Off           ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      88.32 % ;
+; Total nodes checked                                 ; 139          ;
+; Total output ports checked                          ; 137          ;
+; Total output ports with complete 1/0-value coverage ; 121          ;
+; Total output ports with no 1/0-value coverage       ; 11           ;
+; Total output ports with no 1-value coverage         ; 13           ;
+; Total output ports with no 0-value coverage         ; 14           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                    ;
++----------------------------------+------------------------------------------+------------------+
+; Node Name                        ; Output Port Name                         ; Output Port Type ;
++----------------------------------+------------------------------------------+------------------+
+; |CGROM|lcd_rs~reg0               ; |CGROM|lcd_rs~reg0                       ; regout           ;
+; |CGROM|gen_div:gen_1M|tmp        ; |CGROM|gen_div:gen_1M|tmp                ; regout           ;
+; |CGROM|\Display:delay_cnt[0]     ; |CGROM|\Display:delay_cnt[0]             ; regout           ;
+; |CGROM|delay_cnt~116             ; |CGROM|delay_cnt~116                     ; combout          ;
+; |CGROM|\Display:delay_cnt[1]     ; |CGROM|\Display:delay_cnt[1]             ; regout           ;
+; |CGROM|delay_cnt~117             ; |CGROM|delay_cnt~117                     ; combout          ;
+; |CGROM|\Display:delay_cnt[2]     ; |CGROM|\Display:delay_cnt[2]             ; regout           ;
+; |CGROM|delay_cnt~118             ; |CGROM|delay_cnt~118                     ; combout          ;
+; |CGROM|\Display:delay_cnt[3]     ; |CGROM|\Display:delay_cnt[3]             ; regout           ;
+; |CGROM|delay_cnt~119             ; |CGROM|delay_cnt~119                     ; combout          ;
+; |CGROM|Add0~302                  ; |CGROM|Add0~302                          ; combout          ;
+; |CGROM|Add0~302                  ; |CGROM|Add0~303                          ; cout0            ;
+; |CGROM|Add0~302                  ; |CGROM|Add0~303COUT1_314                 ; cout1            ;
+; |CGROM|Add0~304                  ; |CGROM|Add0~304                          ; combout          ;
+; |CGROM|Add0~304                  ; |CGROM|Add0~305                          ; cout0            ;
+; |CGROM|Add0~304                  ; |CGROM|Add0~305COUT1_313                 ; cout1            ;
+; |CGROM|Add0~306                  ; |CGROM|Add0~306                          ; combout          ;
+; |CGROM|Add0~306                  ; |CGROM|Add0~307                          ; cout0            ;
+; |CGROM|Add0~306                  ; |CGROM|Add0~307COUT1                     ; cout1            ;
+; |CGROM|Add0~310                  ; |CGROM|Add0~310                          ; combout          ;
+; |CGROM|LessThan1~211             ; |CGROM|LessThan1~211                     ; combout          ;
+; |CGROM|LessThan1~212             ; |CGROM|LessThan1~212                     ; combout          ;
+; |CGROM|lcd_e~170                 ; |CGROM|lcd_e~170                         ; combout          ;
+; |CGROM|LessThan0~181             ; |CGROM|LessThan0~181                     ; combout          ;
+; |CGROM|lcd_e~171                 ; |CGROM|lcd_e~171                         ; combout          ;
+; |CGROM|lcd_state.display2        ; |CGROM|lcd_state.display2                ; regout           ;
+; |CGROM|\Display:char_cnt[0]      ; |CGROM|\Display:char_cnt[0]              ; regout           ;
+; |CGROM|\Display:char_cnt[0]      ; |CGROM|\Display:char_cnt[0]~647          ; cout0            ;
+; |CGROM|\Display:char_cnt[0]      ; |CGROM|\Display:char_cnt[0]~647COUT1_654 ; cout1            ;
+; |CGROM|\Display:char_cnt[1]      ; |CGROM|\Display:char_cnt[1]~43           ; cout0            ;
+; |CGROM|\Display:char_cnt[1]      ; |CGROM|\Display:char_cnt[1]~43COUT1      ; cout1            ;
+; |CGROM|\Display:char_cnt[2]      ; |CGROM|\Display:char_cnt[2]~34           ; cout0            ;
+; |CGROM|\Display:char_cnt[2]      ; |CGROM|\Display:char_cnt[2]~34COUT1_37   ; cout1            ;
+; |CGROM|LessThan5~155             ; |CGROM|LessThan5~155                     ; combout          ;
+; |CGROM|\Display:char_cnt[3]~23   ; |CGROM|\Display:char_cnt[3]~23           ; combout          ;
+; |CGROM|lcd_state.display1        ; |CGROM|lcd_state.display1                ; regout           ;
+; |CGROM|LessThan4~80              ; |CGROM|LessThan4~80                      ; combout          ;
+; |CGROM|lcd_state.set_ddad1       ; |CGROM|lcd_state.set_ddad1               ; regout           ;
+; |CGROM|lcd_state.clr_disp        ; |CGROM|lcd_state.clr_disp                ; regout           ;
+; |CGROM|lcd_state.set_ddad2       ; |CGROM|lcd_state.set_ddad2               ; regout           ;
+; |CGROM|lcd_state.set_entrymd     ; |CGROM|lcd_state.set_entrymd             ; regout           ;
+; |CGROM|Selector9~251             ; |CGROM|Selector9~251                     ; combout          ;
+; |CGROM|lcd_state.set_dispswitch  ; |CGROM|lcd_state.set_dispswitch          ; regout           ;
+; |CGROM|Selector9~252             ; |CGROM|Selector9~252                     ; combout          ;
+; |CGROM|Selector9~253             ; |CGROM|Selector9~253                     ; combout          ;
+; |CGROM|Selector8~201             ; |CGROM|Selector8~201                     ; combout          ;
+; |CGROM|Selector8~202             ; |CGROM|Selector8~202                     ; combout          ;
+; |CGROM|Selector7~245             ; |CGROM|Selector7~245                     ; combout          ;
+; |CGROM|Selector7~246             ; |CGROM|Selector7~246                     ; combout          ;
+; |CGROM|lcd_state~856             ; |CGROM|lcd_state~856                     ; combout          ;
+; |CGROM|\Display:delay_cnt[4]~207 ; |CGROM|\Display:delay_cnt[4]~207         ; combout          ;
+; |CGROM|\Display:char_cnt[0]~648  ; |CGROM|\Display:char_cnt[0]~648          ; combout          ;
+; |CGROM|\Display:char_cnt[0]~649  ; |CGROM|\Display:char_cnt[0]~649          ; combout          ;
+; |CGROM|\Display:char_cnt[0]~650  ; |CGROM|\Display:char_cnt[0]~650          ; combout          ;
+; |CGROM|\Display:char_cnt[0]~651  ; |CGROM|\Display:char_cnt[0]~651          ; combout          ;
+; |CGROM|\Display:char_cnt[1]~44   ; |CGROM|\Display:char_cnt[1]~44           ; combout          ;
+; |CGROM|\Display:char_cnt[2]~35   ; |CGROM|\Display:char_cnt[2]~35           ; combout          ;
+; |CGROM|Selector18~127            ; |CGROM|Selector18~127                    ; combout          ;
+; |CGROM|lcd_state.set_func~206    ; |CGROM|lcd_state.set_func~206            ; combout          ;
+; |CGROM|Selector16~332            ; |CGROM|Selector16~332                    ; combout          ;
+; |CGROM|Selector16~333            ; |CGROM|Selector16~333                    ; combout          ;
+; |CGROM|Selector17~617            ; |CGROM|Selector17~617                    ; combout          ;
+; |CGROM|Mux0~48                   ; |CGROM|Mux0~48                           ; combout          ;
+; |CGROM|Mux4~16                   ; |CGROM|Mux4~16                           ; combout          ;
+; |CGROM|Selector17~618            ; |CGROM|Selector17~618                    ; combout          ;
+; |CGROM|Selector17~620            ; |CGROM|Selector17~620                    ; combout          ;
+; |CGROM|Selector17~621            ; |CGROM|Selector17~621                    ; combout          ;
+; |CGROM|Selector13~719            ; |CGROM|Selector13~719                    ; combout          ;
+; |CGROM|Selector17~622            ; |CGROM|Selector17~622                    ; combout          ;
+; |CGROM|Selector17~623            ; |CGROM|lcd_data[0]~reg0                  ; regout           ;
+; |CGROM|Mux3~25                   ; |CGROM|Mux3~25                           ; combout          ;
+; |CGROM|Selector16~334            ; |CGROM|Selector16~334                    ; combout          ;
+; |CGROM|Selector16~335            ; |CGROM|Selector16~335                    ; combout          ;
+; |CGROM|Selector16~336            ; |CGROM|Selector16~336                    ; combout          ;
+; |CGROM|Selector16~337            ; |CGROM|Selector16~337                    ; combout          ;
+; |CGROM|Selector16~338            ; |CGROM|Selector16~338                    ; combout          ;
+; |CGROM|Selector16~339            ; |CGROM|lcd_data[1]~reg0                  ; regout           ;
+; |CGROM|Selector15~318            ; |CGROM|Selector15~318                    ; combout          ;
+; |CGROM|Selector15~319            ; |CGROM|Selector15~319                    ; combout          ;
+; |CGROM|Selector15~320            ; |CGROM|Selector15~320                    ; combout          ;
+; |CGROM|Selector15~321            ; |CGROM|Selector15~321                    ; combout          ;
+; |CGROM|Selector15~322            ; |CGROM|Selector15~322                    ; combout          ;
+; |CGROM|Selector15~323            ; |CGROM|lcd_data[2]~reg0                  ; regout           ;
+; |CGROM|Selector14~318            ; |CGROM|Selector14~318                    ; combout          ;
+; |CGROM|Selector14~320            ; |CGROM|Selector14~320                    ; combout          ;
+; |CGROM|Selector11~603            ; |CGROM|Selector11~603                    ; combout          ;
+; |CGROM|Selector13~720            ; |CGROM|Selector13~720                    ; combout          ;
+; |CGROM|Selector13~721            ; |CGROM|Selector13~721                    ; combout          ;
+; |CGROM|Selector13~722            ; |CGROM|Selector13~722                    ; combout          ;
+; |CGROM|Selector12~295            ; |CGROM|Selector12~295                    ; combout          ;
+; |CGROM|Selector12~297            ; |CGROM|lcd_data[5]~reg0                  ; regout           ;
+; |CGROM|Selector11~604            ; |CGROM|Selector11~604                    ; combout          ;
+; |CGROM|Selector11~605            ; |CGROM|Selector11~605                    ; combout          ;
+; |CGROM|Selector10~304            ; |CGROM|Selector10~304                    ; combout          ;
+; |CGROM|Selector10~306            ; |CGROM|lcd_data[7]~reg0                  ; regout           ;
+; |CGROM|Selector25~141            ; |CGROM|Selector25~141                    ; combout          ;
+; |CGROM|Selector24~125            ; |CGROM|Selector24~125                    ; combout          ;
+; |CGROM|Selector8~204             ; |CGROM|Selector8~204                     ; combout          ;
+; |CGROM|Selector8~205             ; |CGROM|Selector8~205                     ; combout          ;
+; |CGROM|\Display:char_cnt[0]~652  ; |CGROM|\Display:char_cnt[0]~652          ; combout          ;
+; |CGROM|Selector14~321            ; |CGROM|Selector14~321                    ; combout          ;
+; |CGROM|lcd_data~890              ; |CGROM|lcd_data~890                      ; combout          ;
+; |CGROM|lcd_data~891              ; |CGROM|lcd_data~891                      ; combout          ;
+; |CGROM|Selector12~298            ; |CGROM|Selector12~298                    ; combout          ;
+; |CGROM|Selector10~307            ; |CGROM|Selector10~307                    ; combout          ;
+; |CGROM|clkin                     ; |CGROM|clkin                             ; combout          ;
+; |CGROM|lcd_e                     ; |CGROM|lcd_e                             ; padio            ;
+; |CGROM|lcd_rs                    ; |CGROM|lcd_rs                            ; padio            ;
+; |CGROM|clk_1M_tst                ; |CGROM|clk_1M_tst                        ; padio            ;
+; |CGROM|delay_cnt_tst[0]          ; |CGROM|delay_cnt_tst[0]                  ; padio            ;
+; |CGROM|delay_cnt_tst[1]          ; |CGROM|delay_cnt_tst[1]                  ; padio            ;
+; |CGROM|delay_cnt_tst[2]          ; |CGROM|delay_cnt_tst[2]                  ; padio            ;
+; |CGROM|delay_cnt_tst[3]          ; |CGROM|delay_cnt_tst[3]                  ; padio            ;
+; |CGROM|lcd_data[0]~output        ; |CGROM|lcd_data[0]~output                ; padio            ;
+; |CGROM|lcd_data[1]~output        ; |CGROM|lcd_data[1]~output                ; padio            ;
+; |CGROM|lcd_data[2]~output        ; |CGROM|lcd_data[2]~output                ; padio            ;
+; |CGROM|lcd_data[3]~output        ; |CGROM|lcd_data[3]~output                ; padio            ;
+; |CGROM|lcd_data[4]~output        ; |CGROM|lcd_data[4]~output                ; padio            ;
+; |CGROM|lcd_data[5]~output        ; |CGROM|lcd_data[5]~output                ; padio            ;
+; |CGROM|lcd_data[6]~output        ; |CGROM|lcd_data[6]~output                ; padio            ;
+; |CGROM|lcd_data[7]~output        ; |CGROM|lcd_data[7]~output                ; padio            ;
++----------------------------------+------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                 ;
++---------------------------+---------------------------+------------------+
+; Node Name                 ; Output Port Name          ; Output Port Type ;
++---------------------------+---------------------------+------------------+
+; |CGROM|Add0~308           ; |CGROM|Add0~308           ; combout          ;
+; |CGROM|Add0~310           ; |CGROM|Add0~311           ; cout0            ;
+; |CGROM|Add0~310           ; |CGROM|Add0~311COUT1_315  ; cout1            ;
+; |CGROM|lcd_state.set_func ; |CGROM|lcd_state.set_func ; regout           ;
+; |CGROM|lcd_state.over~38  ; |CGROM|lcd_state.over~38  ; combout          ;
+; |CGROM|Selector8~200      ; |CGROM|Selector8~200      ; combout          ;
+; |CGROM|Selector14~319     ; |CGROM|Selector14~319     ; combout          ;
+; |CGROM|Selector12~296     ; |CGROM|Selector12~296     ; combout          ;
+; |CGROM|Selector10~305     ; |CGROM|Selector10~305     ; combout          ;
+; |CGROM|lcd_rw             ; |CGROM|lcd_rw             ; padio            ;
+; |CGROM|delay_cnt_tst[4]   ; |CGROM|delay_cnt_tst[4]   ; padio            ;
+; |CGROM|delay_cnt_tst[5]   ; |CGROM|delay_cnt_tst[5]   ; padio            ;
+; |CGROM|delay_cnt_tst[6]   ; |CGROM|delay_cnt_tst[6]   ; padio            ;
++---------------------------+---------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++-----------------------------------------------------------------------+
+; Missing 0-Value Coverage                                              ;
++-------------------------+--------------------------+------------------+
+; Node Name               ; Output Port Name         ; Output Port Type ;
++-------------------------+--------------------------+------------------+
+; |CGROM|Add0~308         ; |CGROM|Add0~308          ; combout          ;
+; |CGROM|Add0~310         ; |CGROM|Add0~311          ; cout0            ;
+; |CGROM|Add0~310         ; |CGROM|Add0~311COUT1_315 ; cout1            ;
+; |CGROM|lcd_state.over   ; |CGROM|lcd_state.over    ; regout           ;
+; |CGROM|Selector8~200    ; |CGROM|Selector8~200     ; combout          ;
+; |CGROM|Selector17~619   ; |CGROM|Selector17~619    ; combout          ;
+; |CGROM|Selector14~319   ; |CGROM|Selector14~319    ; combout          ;
+; |CGROM|Selector12~296   ; |CGROM|Selector12~296    ; combout          ;
+; |CGROM|Selector10~305   ; |CGROM|Selector10~305    ; combout          ;
+; |CGROM|resetin          ; |CGROM|resetin           ; combout          ;
+; |CGROM|lcd_rw           ; |CGROM|lcd_rw            ; padio            ;
+; |CGROM|delay_cnt_tst[4] ; |CGROM|delay_cnt_tst[4]  ; padio            ;
+; |CGROM|delay_cnt_tst[5] ; |CGROM|delay_cnt_tst[5]  ; padio            ;
+; |CGROM|delay_cnt_tst[6] ; |CGROM|delay_cnt_tst[6]  ; padio            ;
++-------------------------+--------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 6.0 Build 178 04/27/2006 SJ Full Version
+    Info: Processing started: Sun Feb 07 22:59:21 2010
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off CGROM -c CGROM
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of CGROM.vwf called CGROM.sim_ori.vwf is created in the db folder
+Info: Inverted registers were found during simulation
+    Info: Register: |CGROM|lcd_state.set_func
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      88.32 %
+Info: Number of transitions in simulation is 14109
+Info: Vector file CGROM.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Processing ended: Sun Feb 07 22:59:23 2010
+    Info: Elapsed time: 00:00:02
+
+

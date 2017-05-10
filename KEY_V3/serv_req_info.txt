@@ -1,0 +1,14 @@
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>BDD</sub_system>
+	<file>q:\quartus\ccl\mem\./mem_manager.cpp</file>
+	<line>2037</line>
+	<error>Free memory corrupted at 06658A6B
+</error>
+	<date>Sun Feb 07 22:27:58 2010</date>
+	<version>Quartus II Version 6.0 Build 178 04/27/2006 SJ Full Version</version>
+	<full_error>Internal Error: Sub-system: BDD, File: q:\quartus\ccl\mem\./mem_manager.cpp, Line: 2037
+Free memory corrupted at 06658A6B
+
+Quartus II Version 6.0 Build 178 04/27/2006 SJ Full Version </full_error>
+</internal_error>

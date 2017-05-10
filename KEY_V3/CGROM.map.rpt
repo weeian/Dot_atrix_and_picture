@@ -1,0 +1,396 @@
+Analysis & Synthesis report for CGROM
+Fri Dec 09 11:23:36 2016
+Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |CGROM|lcd_state
+  9. State Machine - |CGROM|key_matris_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: gen_div:gen_1k
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                            ;
++-----------------------------+-------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri Dec 09 11:23:36 2016     ;
+; Quartus II 64-Bit Version   ; 12.0 Build 178 05/31/2012 SJ Full Version ;
+; Revision Name               ; CGROM                                     ;
+; Top-level Entity Name       ; CGROM                                     ;
+; Family                      ; Cyclone                                   ;
+; Total logic elements        ; 317                                       ;
+; Total pins                  ; 33                                        ;
+; Total virtual pins          ; 0                                         ;
+; Total memory bits           ; 0                                         ;
+; Total PLLs                  ; 0                                         ;
++-----------------------------+-------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP1C3T144C8        ;                    ;
+; Top-level entity name                                                      ; CGROM              ; CGROM              ;
+; Family name                                                                ; Cyclone            ; Stratix            ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; Off                ; Off                ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                        ;
++----------------------------------+-----------------+-----------------+------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------+---------+
+; gen_div.vhd                      ; yes             ; User VHDL File  ; E:/test/KEY_V3/gen_div.vhd   ;         ;
+; CGROM.vhd                        ; yes             ; User VHDL File  ; E:/test/KEY_V3/CGROM.vhd     ;         ;
++----------------------------------+-----------------+-----------------+------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Total logic elements                        ; 317                ;
+;     -- Combinational with no register       ; 246                ;
+;     -- Register only                        ; 18                 ;
+;     -- Combinational with a register        ; 53                 ;
+;                                             ;                    ;
+; Logic element usage by number of LUT inputs ;                    ;
+;     -- 4 input functions                    ; 205                ;
+;     -- 3 input functions                    ; 41                 ;
+;     -- 2 input functions                    ; 44                 ;
+;     -- 1 input functions                    ; 9                  ;
+;     -- 0 input functions                    ; 0                  ;
+;                                             ;                    ;
+; Logic elements by mode                      ;                    ;
+;     -- normal mode                          ; 297                ;
+;     -- arithmetic mode                      ; 20                 ;
+;     -- qfbk mode                            ; 0                  ;
+;     -- register cascade mode                ; 0                  ;
+;     -- synchronous clear/load mode          ; 8                  ;
+;     -- asynchronous clear/load mode         ; 40                 ;
+;                                             ;                    ;
+; Total registers                             ; 71                 ;
+; Total logic cells in carry chains           ; 23                 ;
+; I/O pins                                    ; 33                 ;
+; Maximum fan-out node                        ; gen_div:gen_1k|tmp ;
+; Maximum fan-out                             ; 63                 ;
+; Total fan-out                               ; 1257               ;
+; Average fan-out                             ; 3.59               ;
++---------------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name   ; Library Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+--------------+
+; |CGROM                     ; 317 (298)   ; 71           ; 0           ; 33   ; 0            ; 246 (236)    ; 18 (14)           ; 53 (48)          ; 23 (15)         ; 0 (0)      ; |CGROM                ;              ;
+;    |gen_div:gen_1k|        ; 19 (19)     ; 9            ; 0           ; 0    ; 0            ; 10 (10)      ; 4 (4)             ; 5 (5)            ; 8 (8)           ; 0 (0)      ; |CGROM|gen_div:gen_1k ;              ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CGROM|lcd_state                                                                                                                                                                                             ;
++--------------------------+----------------+--------------------+--------------------+---------------------+---------------------+--------------------+-----------------------+--------------------------+--------------------+
+; Name                     ; lcd_state.over ; lcd_state.Display2 ; lcd_state.Display1 ; lcd_state.set_DDAd2 ; lcd_state.set_DDAd1 ; lcd_state.set_Func ; lcd_state.set_EntryMd ; lcd_state.set_DispSwitch ; lcd_state.clr_Disp ;
++--------------------------+----------------+--------------------+--------------------+---------------------+---------------------+--------------------+-----------------------+--------------------------+--------------------+
+; lcd_state.clr_Disp       ; 0              ; 0                  ; 0                  ; 0                   ; 0                   ; 0                  ; 0                     ; 0                        ; 0                  ;
+; lcd_state.set_DispSwitch ; 0              ; 0                  ; 0                  ; 0                   ; 0                   ; 0                  ; 0                     ; 1                        ; 1                  ;
+; lcd_state.set_EntryMd    ; 0              ; 0                  ; 0                  ; 0                   ; 0                   ; 0                  ; 1                     ; 0                        ; 1                  ;
+; lcd_state.set_Func       ; 0              ; 0                  ; 0                  ; 0                   ; 0                   ; 1                  ; 0                     ; 0                        ; 1                  ;
+; lcd_state.set_DDAd1      ; 0              ; 0                  ; 0                  ; 0                   ; 1                   ; 0                  ; 0                     ; 0                        ; 1                  ;
+; lcd_state.set_DDAd2      ; 0              ; 0                  ; 0                  ; 1                   ; 0                   ; 0                  ; 0                     ; 0                        ; 1                  ;
+; lcd_state.Display1       ; 0              ; 0                  ; 1                  ; 0                   ; 0                   ; 0                  ; 0                     ; 0                        ; 1                  ;
+; lcd_state.Display2       ; 0              ; 1                  ; 0                  ; 0                   ; 0                   ; 0                  ; 0                     ; 0                        ; 1                  ;
+; lcd_state.over           ; 1              ; 0                  ; 0                  ; 0                   ; 0                   ; 0                  ; 0                     ; 0                        ; 1                  ;
++--------------------------+----------------+--------------------+--------------------+---------------------+---------------------+--------------------+-----------------------+--------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CGROM|key_matris_state                                                                                                                                                                  ;
++-------------------------------------+--------------------------------+-------------------------------------+--------------------------------+------------------------------+-----------------------------+
+; Name                                ; key_matris_state.get_key_value ; key_matris_state.check_line_by_line ; key_matris_state.re_check_down ; key_matris_state.off_twitter ; key_matris_state.check_down ;
++-------------------------------------+--------------------------------+-------------------------------------+--------------------------------+------------------------------+-----------------------------+
+; key_matris_state.check_down         ; 0                              ; 0                                   ; 0                              ; 0                            ; 0                           ;
+; key_matris_state.off_twitter        ; 0                              ; 0                                   ; 0                              ; 1                            ; 1                           ;
+; key_matris_state.re_check_down      ; 0                              ; 0                                   ; 1                              ; 0                            ; 1                           ;
+; key_matris_state.check_line_by_line ; 0                              ; 1                                   ; 0                              ; 0                            ; 1                           ;
+; key_matris_state.get_key_value      ; 1                              ; 0                                   ; 0                              ; 0                            ; 1                           ;
++-------------------------------------+--------------------------------+-------------------------------------+--------------------------------+------------------------------+-----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; line[0]~reg0                          ; Merged with line[6]~reg0               ;
+; line[1]~reg0                          ; Merged with line[5]~reg0               ;
+; line[2]~reg0                          ; Merged with line[4]~reg0               ;
+; line[7]~reg0                          ; Stuck at VCC due to stuck port data_in ;
+; lcd_state.over                        ; Stuck at GND due to stuck port data_in ;
+; lcd_rw~reg0                           ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                         ;
++----------------+---------------------------+----------------------------------------+
+; Register name  ; Reason for Removal        ; Registers Removed due to This Register ;
++----------------+---------------------------+----------------------------------------+
+; lcd_state.over ; Stuck at GND              ; lcd_rw~reg0                            ;
+;                ; due to stuck port data_in ;                                        ;
++----------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 71    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 40    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 46    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; row_tmp[0]                             ; 2       ;
+; row_tmp[1]                             ; 4       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                            ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |CGROM|line[5]~reg0                   ;                            ;
+; 133:1              ; 6 bits    ; 528 LEs       ; 510 LEs              ; 18 LEs                 ; |CGROM|\check_key_matrix:cnt_key[1]   ;                            ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 4 LEs                ; 32 LEs                 ; |CGROM|\check_key_matrix:char_cnt[3]  ;                            ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 8 LEs                ; 64 LEs                 ; |CGROM|\check_key_matrix:delay_cnt[5] ;                            ;
+; 131:1              ; 2 bits    ; 174 LEs       ; 4 LEs                ; 170 LEs                ; |CGROM|row_tmp[1]                     ;                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; |CGROM|Selector13                     ;                            ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; |CGROM|lcd_state                      ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------+----------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gen_div:gen_1k ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; div_param      ; 240   ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
+    Info: Processing started: Fri Dec 09 11:23:34 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CGROM -c CGROM
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file gen_div.vhd
+    Info (12022): Found design unit 1: gen_div-behave
+    Info (12023): Found entity 1: gen_div
+Info (12021): Found 2 design units, including 1 entities, in source file cgrom.vhd
+    Info (12022): Found design unit 1: CGROM-behave
+    Info (12023): Found entity 1: CGROM
+Info (12127): Elaborating entity "CGROM" for the top level hierarchy
+Info (12128): Elaborating entity "gen_div" for hierarchy "gen_div:gen_1k"
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[7]" and its non-tri-state driver.
+Info (13060): One or more bidirs are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "lcd_data[7]" is moved to its source
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "lcd_data[0]~synth"
+    Warning (13010): Node "lcd_data[1]~synth"
+    Warning (13010): Node "lcd_data[2]~synth"
+    Warning (13010): Node "lcd_data[3]~synth"
+    Warning (13010): Node "lcd_data[4]~synth"
+    Warning (13010): Node "lcd_data[5]~synth"
+    Warning (13010): Node "lcd_data[6]~synth"
+    Warning (13010): Node "lcd_data[7]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "line[7]" is stuck at VCC
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+Info (18000): Registers with preset signals will power-up high
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 350 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 21 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 317 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 436 megabytes
+    Info: Processing ended: Fri Dec 09 11:23:36 2016
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
+
+

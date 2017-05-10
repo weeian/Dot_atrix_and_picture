@@ -1,0 +1,836 @@
+TimeQuest Timing Analyzer report for CGROM
+Fri Dec 09 11:23:43 2016
+Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'gen_div:gen_1k|tmp'
+ 12. Setup: 'clkin'
+ 13. Hold: 'clkin'
+ 14. Hold: 'gen_div:gen_1k|tmp'
+ 15. Minimum Pulse Width: 'clkin'
+ 16. Minimum Pulse Width: 'gen_div:gen_1k|tmp'
+ 17. Setup Times
+ 18. Hold Times
+ 19. Clock to Output Times
+ 20. Minimum Clock to Output Times
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths
+ 26. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 12.0 Build 178 05/31/2012 SJ Full Version ;
+; Revision Name      ; CGROM                                             ;
+; Device Family      ; Cyclone                                           ;
+; Device Name        ; EP1C3T144C8                                       ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                 ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+; Clock Name         ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+; clkin              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clkin }              ;
+; gen_div:gen_1k|tmp ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { gen_div:gen_1k|tmp } ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                              ;
++------------+-----------------+--------------------+-------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name         ; Note                                                  ;
++------------+-----------------+--------------------+-------------------------------------------------------+
+; 105.71 MHz ; 105.71 MHz      ; gen_div:gen_1k|tmp ;                                                       ;
+; 275.86 MHz ; 275.03 MHz      ; clkin              ; limit due to high minimum pulse width violation (tch) ;
++------------+-----------------+--------------------+-------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------+
+; Setup Summary                               ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; gen_div:gen_1k|tmp ; -8.460 ; -350.046      ;
+; clkin              ; -2.625 ; -18.393       ;
++--------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Hold Summary                                ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; clkin              ; -1.348 ; -1.348        ;
+; gen_div:gen_1k|tmp ; 0.822  ; 0.000         ;
++--------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++---------------------------------------------+
+; Minimum Pulse Width Summary                 ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; clkin              ; -1.583 ; -25.307       ;
+; gen_div:gen_1k|tmp ; -1.318 ; -163.432      ;
++--------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'gen_div:gen_1k|tmp'                                                                                                                                ;
++--------+--------------------------------+-------------------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                       ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+-------------------------------+--------------------+--------------------+--------------+------------+------------+
+; -8.460 ; \check_key_matrix:delay_cnt[1] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.431      ;
+; -8.454 ; \check_key_matrix:delay_cnt[2] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.425      ;
+; -8.375 ; \check_key_matrix:delay_cnt[0] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.346      ;
+; -8.371 ; \check_key_matrix:delay_cnt[1] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.342      ;
+; -8.365 ; \check_key_matrix:delay_cnt[2] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.336      ;
+; -8.313 ; \check_key_matrix:delay_cnt[3] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.284      ;
+; -8.293 ; \check_key_matrix:delay_cnt[4] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.264      ;
+; -8.286 ; \check_key_matrix:delay_cnt[0] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.257      ;
+; -8.224 ; \check_key_matrix:delay_cnt[3] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.195      ;
+; -8.209 ; \check_key_matrix:delay_cnt[1] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.180      ;
+; -8.204 ; \check_key_matrix:delay_cnt[4] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.175      ;
+; -8.203 ; \check_key_matrix:delay_cnt[2] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.174      ;
+; -8.136 ; \check_key_matrix:delay_cnt[1] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 9.100      ;
+; -8.130 ; \check_key_matrix:delay_cnt[2] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 9.094      ;
+; -8.124 ; \check_key_matrix:delay_cnt[0] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.095      ;
+; -8.104 ; \check_key_matrix:delay_cnt[1] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 9.067      ;
+; -8.098 ; \check_key_matrix:delay_cnt[2] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 9.061      ;
+; -8.062 ; \check_key_matrix:delay_cnt[3] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.033      ;
+; -8.051 ; \check_key_matrix:delay_cnt[0] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 9.015      ;
+; -8.042 ; \check_key_matrix:delay_cnt[4] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 9.013      ;
+; -8.019 ; \check_key_matrix:delay_cnt[0] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 8.982      ;
+; -7.989 ; \check_key_matrix:delay_cnt[3] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 8.953      ;
+; -7.974 ; \check_key_matrix:delay_cnt[1] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.945      ;
+; -7.969 ; \check_key_matrix:delay_cnt[4] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 8.933      ;
+; -7.968 ; \check_key_matrix:delay_cnt[2] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.939      ;
+; -7.957 ; \check_key_matrix:delay_cnt[3] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 8.920      ;
+; -7.937 ; \check_key_matrix:delay_cnt[4] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 8.900      ;
+; -7.889 ; \check_key_matrix:delay_cnt[0] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.860      ;
+; -7.862 ; \check_key_matrix:delay_cnt[1] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.833      ;
+; -7.856 ; \check_key_matrix:delay_cnt[2] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.827      ;
+; -7.827 ; \check_key_matrix:delay_cnt[3] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.798      ;
+; -7.807 ; \check_key_matrix:delay_cnt[4] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.778      ;
+; -7.777 ; \check_key_matrix:delay_cnt[0] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.748      ;
+; -7.715 ; \check_key_matrix:delay_cnt[3] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.686      ;
+; -7.705 ; \check_key_matrix:delay_cnt[6] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 8.668      ;
+; -7.695 ; \check_key_matrix:delay_cnt[4] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.666      ;
+; -7.666 ; \check_key_matrix:delay_cnt[6] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.637      ;
+; -7.646 ; \check_key_matrix:delay_cnt[6] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.617      ;
+; -7.591 ; \check_key_matrix:delay_cnt[5] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 8.554      ;
+; -7.552 ; \check_key_matrix:delay_cnt[5] ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.523      ;
+; -7.532 ; \check_key_matrix:delay_cnt[5] ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.503      ;
+; -7.522 ; \check_key_matrix:delay_cnt[5] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.493      ;
+; -7.422 ; \check_key_matrix:delay_cnt[6] ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.393      ;
+; -7.389 ; \check_key_matrix:delay_cnt[6] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 8.353      ;
+; -7.275 ; \check_key_matrix:delay_cnt[5] ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 8.239      ;
+; -7.271 ; \check_key_matrix:delay_cnt[5] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.242      ;
+; -7.265 ; \check_key_matrix:delay_cnt[6] ; lcd_data[4]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 8.236      ;
+; -7.035 ; \check_key_matrix:char_cnt[2]  ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.998      ;
+; -6.952 ; \check_key_matrix:char_cnt[1]  ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.915      ;
+; -6.924 ; \check_key_matrix:delay_cnt[5] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 7.895      ;
+; -6.889 ; \check_key_matrix:char_cnt[3]  ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.852      ;
+; -6.824 ; \check_key_matrix:delay_cnt[6] ; lcd_data[5]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.008      ; 7.795      ;
+; -6.755 ; \check_key_matrix:char_cnt[2]  ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.007      ; 7.725      ;
+; -6.718 ; \check_key_matrix:char_cnt[2]  ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.007      ; 7.688      ;
+; -6.715 ; \check_key_matrix:cnt_key[0]   ; \check_key_matrix:cnt_key[4]  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.678      ;
+; -6.709 ; row_tmp[0]                     ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.671      ;
+; -6.709 ; row_tmp[0]                     ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.671      ;
+; -6.709 ; row_tmp[0]                     ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.671      ;
+; -6.709 ; row_tmp[0]                     ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.671      ;
+; -6.700 ; \check_key_matrix:delay_cnt[1] ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.664      ;
+; -6.700 ; \check_key_matrix:delay_cnt[1] ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.664      ;
+; -6.700 ; \check_key_matrix:delay_cnt[1] ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.664      ;
+; -6.700 ; \check_key_matrix:delay_cnt[1] ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.664      ;
+; -6.698 ; \check_key_matrix:delay_cnt[2] ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.662      ;
+; -6.698 ; \check_key_matrix:delay_cnt[2] ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.662      ;
+; -6.698 ; \check_key_matrix:delay_cnt[2] ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.662      ;
+; -6.698 ; \check_key_matrix:delay_cnt[2] ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.662      ;
+; -6.685 ; row_tmp[0]                     ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.006      ; 7.654      ;
+; -6.674 ; \check_key_matrix:cnt_key[3]   ; \check_key_matrix:cnt_key[4]  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.637      ;
+; -6.673 ; \check_key_matrix:char_cnt[0]  ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.636      ;
+; -6.672 ; row_tmp[0]                     ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.634      ;
+; -6.672 ; \check_key_matrix:char_cnt[1]  ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.007      ; 7.642      ;
+; -6.666 ; key_matris_state.get_key_value ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.628      ;
+; -6.666 ; key_matris_state.get_key_value ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.628      ;
+; -6.666 ; key_matris_state.get_key_value ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.628      ;
+; -6.666 ; key_matris_state.get_key_value ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.628      ;
+; -6.656 ; \check_key_matrix:cnt_key[1]   ; \check_key_matrix:cnt_key[4]  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.619      ;
+; -6.642 ; key_matris_state.get_key_value ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.006      ; 7.611      ;
+; -6.635 ; \check_key_matrix:char_cnt[1]  ; lcd_data[6]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.007      ; 7.605      ;
+; -6.629 ; key_matris_state.get_key_value ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.591      ;
+; -6.624 ; row_tmp[1]                     ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.586      ;
+; -6.624 ; row_tmp[1]                     ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.586      ;
+; -6.624 ; row_tmp[1]                     ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.586      ;
+; -6.624 ; row_tmp[1]                     ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.586      ;
+; -6.615 ; \check_key_matrix:delay_cnt[7] ; lcd_data[1]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.000      ; 7.578      ;
+; -6.615 ; \check_key_matrix:delay_cnt[0] ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.579      ;
+; -6.615 ; \check_key_matrix:delay_cnt[0] ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.579      ;
+; -6.615 ; \check_key_matrix:delay_cnt[0] ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.579      ;
+; -6.615 ; \check_key_matrix:delay_cnt[0] ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.579      ;
+; -6.610 ; \check_key_matrix:delay_cnt[3] ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.574      ;
+; -6.610 ; \check_key_matrix:delay_cnt[3] ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.574      ;
+; -6.610 ; \check_key_matrix:delay_cnt[3] ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.574      ;
+; -6.610 ; \check_key_matrix:delay_cnt[3] ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.574      ;
+; -6.609 ; \check_key_matrix:char_cnt[3]  ; lcd_data[2]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.007      ; 7.579      ;
+; -6.600 ; row_tmp[1]                     ; lcd_data[0]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.006      ; 7.569      ;
+; -6.590 ; \check_key_matrix:delay_cnt[4] ; \check_key_matrix:char_cnt[1] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.554      ;
+; -6.590 ; \check_key_matrix:delay_cnt[4] ; \check_key_matrix:char_cnt[0] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.554      ;
+; -6.590 ; \check_key_matrix:delay_cnt[4] ; \check_key_matrix:char_cnt[2] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.554      ;
+; -6.590 ; \check_key_matrix:delay_cnt[4] ; \check_key_matrix:char_cnt[3] ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; 0.001      ; 7.554      ;
+; -6.587 ; row_tmp[1]                     ; lcd_data[3]~reg0              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 1.000        ; -0.001     ; 7.549      ;
++--------+--------------------------------+-------------------------------+--------------------+--------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clkin'                                                                                                                     ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node             ; To Node               ; Launch Clock       ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+; -2.625 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.588      ;
+; -2.562 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.525      ;
+; -2.485 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.448      ;
+; -2.420 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.383      ;
+; -2.378 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.341      ;
+; -2.378 ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.341      ;
+; -2.313 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.276      ;
+; -2.256 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.219      ;
+; -2.234 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.197      ;
+; -2.191 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.154      ;
+; -2.158 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.121      ;
+; -2.158 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.121      ;
+; -2.157 ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.120      ;
+; -2.112 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.075      ;
+; -2.100 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.063      ;
+; -2.099 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.062      ;
+; -2.071 ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.034      ;
+; -2.045 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 3.008      ;
+; -2.018 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.981      ;
+; -2.018 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.981      ;
+; -2.015 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[1] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.978      ;
+; -1.953 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.916      ;
+; -1.953 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.916      ;
+; -1.929 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.892      ;
+; -1.911 ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.874      ;
+; -1.911 ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.874      ;
+; -1.864 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.827      ;
+; -1.802 ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.765      ;
+; -1.801 ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.764      ;
+; -1.649 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.612      ;
+; -1.585 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.548      ;
+; -1.548 ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.511      ;
+; -1.547 ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.510      ;
+; -1.527 ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.490      ;
+; -1.526 ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.489      ;
+; -1.432 ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[1] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.395      ;
+; -1.423 ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.386      ;
+; -1.416 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.379      ;
+; -1.362 ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.325      ;
+; -1.334 ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.297      ;
+; -1.333 ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.296      ;
+; -1.289 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[0] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.252      ;
+; -1.273 ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.236      ;
+; -1.272 ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.235      ;
+; -1.267 ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.230      ;
+; -1.160 ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.123      ;
+; -1.092 ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.055      ;
+; -1.080 ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.043      ;
+; -1.079 ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 2.042      ;
+; -0.831 ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 1.000        ; 0.000      ; 1.794      ;
+; 1.796  ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp ; clkin       ; 0.500        ; 2.740      ; 1.631      ;
+; 2.296  ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp ; clkin       ; 1.000        ; 2.740      ; 1.631      ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clkin'                                                                                                                      ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node             ; To Node               ; Launch Clock       ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+; -1.348 ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp ; clkin       ; 0.000        ; 2.740      ; 1.631      ;
+; -0.848 ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp    ; gen_div:gen_1k|tmp ; clkin       ; -0.500       ; 2.740      ; 1.631      ;
+; 1.779  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 1.794      ;
+; 1.780  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 1.795      ;
+; 1.781  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 1.796      ;
+; 1.874  ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 1.889      ;
+; 2.027  ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.042      ;
+; 2.028  ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.043      ;
+; 2.040  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.055      ;
+; 2.041  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.056      ;
+; 2.042  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.057      ;
+; 2.045  ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.060      ;
+; 2.108  ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.123      ;
+; 2.109  ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.124      ;
+; 2.117  ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.132      ;
+; 2.198  ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.213      ;
+; 2.215  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.230      ;
+; 2.220  ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.235      ;
+; 2.221  ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.236      ;
+; 2.237  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[0] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.252      ;
+; 2.257  ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.272      ;
+; 2.282  ; gen_div:gen_1k|cnt[6] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.297      ;
+; 2.293  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.308      ;
+; 2.294  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.309      ;
+; 2.362  ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.377      ;
+; 2.363  ; gen_div:gen_1k|cnt[4] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.378      ;
+; 2.364  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.379      ;
+; 2.365  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.380      ;
+; 2.366  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.381      ;
+; 2.380  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[1] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.395      ;
+; 2.459  ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.474      ;
+; 2.474  ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.489      ;
+; 2.475  ; gen_div:gen_1k|cnt[7] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.490      ;
+; 2.495  ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.510      ;
+; 2.496  ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.511      ;
+; 2.533  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|tmp    ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.548      ;
+; 2.534  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.549      ;
+; 2.535  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[4] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.550      ;
+; 2.554  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.569      ;
+; 2.555  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.570      ;
+; 2.585  ; gen_div:gen_1k|cnt[5] ; gen_div:gen_1k|cnt[7] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.600      ;
+; 2.597  ; gen_div:gen_1k|cnt[3] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.612      ;
+; 2.799  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.814      ;
+; 2.862  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[2] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.877      ;
+; 2.878  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.893      ;
+; 2.879  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.894      ;
+; 2.950  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[1] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 2.965      ;
+; 3.035  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[5] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 3.050      ;
+; 3.035  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[6] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 3.050      ;
+; 3.169  ; gen_div:gen_1k|cnt[2] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 3.184      ;
+; 3.246  ; gen_div:gen_1k|cnt[1] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 3.261      ;
+; 3.309  ; gen_div:gen_1k|cnt[0] ; gen_div:gen_1k|cnt[3] ; clkin              ; clkin       ; 0.000        ; 0.000      ; 3.324      ;
++--------+-----------------------+-----------------------+--------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'gen_div:gen_1k|tmp'                                                                                                                                           ;
++-------+-------------------------------------+-------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; 0.822 ; lcd_data[5]~reg0                    ; lcd_data[5]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.837      ;
+; 0.822 ; \check_key_matrix:state[0]          ; \check_key_matrix:state[0]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.837      ;
+; 0.822 ; \check_key_matrix:state[1]          ; \check_key_matrix:state[1]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.837      ;
+; 0.822 ; \check_key_matrix:state[2]          ; \check_key_matrix:state[2]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.837      ;
+; 0.907 ; lcd_data[7]~reg0                    ; lcd_data[7]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.922      ;
+; 0.927 ; lcd_data[3]~reg0                    ; lcd_data[3]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.942      ;
+; 0.927 ; lcd_data[1]~reg0                    ; lcd_data[1]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 0.942      ;
+; 1.070 ; lcd_e~reg0                          ; lcd_e~reg0                          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.085      ;
+; 1.136 ; cnt[0]                              ; cnt[0]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.151      ;
+; 1.139 ; \check_key_matrix:char_cnt[2]       ; \check_key_matrix:char_cnt[3]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.154      ;
+; 1.143 ; cnt[0]                              ; cnt[2]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.158      ;
+; 1.143 ; lcd_data[4]~reg0                    ; lcd_data[4]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.158      ;
+; 1.167 ; \check_key_matrix:char_cnt[1]       ; \check_key_matrix:char_cnt[1]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.182      ;
+; 1.168 ; lcd_data[0]~reg0                    ; lcd_data[0]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.183      ;
+; 1.170 ; \check_key_matrix:char_cnt[1]       ; \check_key_matrix:char_cnt[2]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.185      ;
+; 1.195 ; lcd_state.set_EntryMd               ; lcd_state.set_DispSwitch            ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.210      ;
+; 1.255 ; lcd_state.clr_Disp                  ; lcd_state.set_Func                  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.270      ;
+; 1.275 ; key_matris_state.get_key_value      ; key_matris_state.check_down         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.290      ;
+; 1.275 ; key_matris_state.get_key_value      ; key_matris_state.get_key_value      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.290      ;
+; 1.276 ; key_matris_state.get_key_value      ; key_matris_state.re_check_down      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.291      ;
+; 1.277 ; key_matris_state.check_down         ; key_matris_state.off_twitter        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.292      ;
+; 1.287 ; \check_key_matrix:char_cnt[0]       ; \check_key_matrix:char_cnt[0]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.302      ;
+; 1.296 ; cnt[1]                              ; cnt[1]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.311      ;
+; 1.298 ; cnt[1]                              ; row[1]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.313      ;
+; 1.299 ; cnt[1]                              ; row[7]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.314      ;
+; 1.299 ; cnt[1]                              ; row[5]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.314      ;
+; 1.300 ; cnt[1]                              ; row[6]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.315      ;
+; 1.301 ; cnt[1]                              ; row[2]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.316      ;
+; 1.329 ; lcd_state.Display2                  ; lcd_state.Display2                  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.344      ;
+; 1.340 ; row_tmp[1]                          ; \check_key_matrix:state[1]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.355      ;
+; 1.342 ; row_tmp[1]                          ; \check_key_matrix:state[2]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.357      ;
+; 1.359 ; key_matris_state.check_line_by_line ; key_matris_state.check_line_by_line ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.374      ;
+; 1.382 ; cnt[2]                              ; cnt[2]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.397      ;
+; 1.414 ; \check_key_matrix:char_cnt[2]       ; \check_key_matrix:char_cnt[2]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.429      ;
+; 1.470 ; lcd_rs~reg0                         ; lcd_rs~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.485      ;
+; 1.475 ; \check_key_matrix:cnt_key[0]        ; \check_key_matrix:cnt_key[0]        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.490      ;
+; 1.482 ; key_matris_state.re_check_down      ; key_matris_state.re_check_down      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.497      ;
+; 1.500 ; key_matris_state.check_line_by_line ; row_tmp[0]                          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.515      ;
+; 1.501 ; key_matris_state.check_line_by_line ; row_tmp[1]                          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.516      ;
+; 1.509 ; key_matris_state.off_twitter        ; key_matris_state.off_twitter        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.524      ;
+; 1.520 ; key_matris_state.check_down         ; key_matris_state.check_down         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.535      ;
+; 1.524 ; lcd_state.set_DispSwitch            ; lcd_state.set_DDAd1                 ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.539      ;
+; 1.536 ; \check_key_matrix:char_cnt[3]       ; \check_key_matrix:char_cnt[3]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.551      ;
+; 1.547 ; \check_key_matrix:char_cnt[0]       ; \check_key_matrix:char_cnt[1]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.562      ;
+; 1.548 ; \check_key_matrix:char_cnt[3]       ; \check_key_matrix:char_cnt[0]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.563      ;
+; 1.549 ; \check_key_matrix:char_cnt[0]       ; \check_key_matrix:char_cnt[2]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.564      ;
+; 1.575 ; key_matris_state.off_twitter        ; key_matris_state.re_check_down      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.590      ;
+; 1.592 ; cnt[2]                              ; line[6]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.607      ;
+; 1.598 ; key_matris_state.get_key_value      ; \check_key_matrix:state[1]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.613      ;
+; 1.607 ; lcd_data[2]~reg0                    ; lcd_data[2]~reg0                    ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.622      ;
+; 1.626 ; lcd_state.set_Func                  ; lcd_state.set_EntryMd               ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.641      ;
+; 1.641 ; row_tmp[0]                          ; \check_key_matrix:state[1]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.656      ;
+; 1.708 ; cnt[2]                              ; line[3]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.723      ;
+; 1.713 ; line[3]~reg0                        ; line[3]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.728      ;
+; 1.812 ; row_tmp[1]                          ; \check_key_matrix:state[0]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.827      ;
+; 1.824 ; cnt[0]                              ; row[1]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.837      ;
+; 1.826 ; cnt[0]                              ; row[6]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.839      ;
+; 1.827 ; cnt[0]                              ; row[2]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.840      ;
+; 1.827 ; cnt[0]                              ; cnt[1]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.840      ;
+; 1.829 ; cnt[0]                              ; row[5]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.842      ;
+; 1.830 ; cnt[0]                              ; row[7]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 1.843      ;
+; 1.848 ; key_matris_state.get_key_value      ; \check_key_matrix:state[2]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.863      ;
+; 1.854 ; key_matris_state.get_key_value      ; \check_key_matrix:state[0]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.869      ;
+; 1.861 ; \check_key_matrix:char_cnt[3]       ; \check_key_matrix:char_cnt[1]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.876      ;
+; 1.864 ; \check_key_matrix:char_cnt[3]       ; \check_key_matrix:char_cnt[2]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.879      ;
+; 1.891 ; row_tmp[0]                          ; \check_key_matrix:state[2]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.906      ;
+; 1.897 ; row_tmp[0]                          ; \check_key_matrix:state[0]          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.912      ;
+; 1.912 ; cnt[0]                              ; line[3]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.927      ;
+; 1.922 ; cnt[0]                              ; line[6]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.937      ;
+; 1.924 ; \check_key_matrix:char_cnt[1]       ; \check_key_matrix:char_cnt[3]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 1.939      ;
+; 2.051 ; \check_key_matrix:char_cnt[0]       ; \check_key_matrix:char_cnt[3]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.066      ;
+; 2.057 ; key_matris_state.get_key_value      ; \check_key_matrix:cnt_key[0]        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.040     ; 2.032      ;
+; 2.067 ; \check_key_matrix:char_cnt[1]       ; \check_key_matrix:char_cnt[0]       ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.082      ;
+; 2.092 ; cnt[2]                              ; row[2]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 2.105      ;
+; 2.097 ; cnt[2]                              ; row[5]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 2.110      ;
+; 2.099 ; cnt[2]                              ; row[7]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 2.112      ;
+; 2.099 ; cnt[2]                              ; row[6]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 2.112      ;
+; 2.100 ; cnt[2]                              ; row[1]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.002     ; 2.113      ;
+; 2.100 ; line[6]~reg0                        ; line[6]~reg0                        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.115      ;
+; 2.102 ; cnt[1]                              ; cnt[2]                              ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.002      ; 2.119      ;
+; 2.104 ; key_matris_state.off_twitter        ; key_matris_state.get_key_value      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.119      ;
+; 2.116 ; key_matris_state.re_check_down      ; key_matris_state.check_down         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.131      ;
+; 2.116 ; \check_key_matrix:cnt_key[1]        ; row_tmp[1]                          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.040      ; 2.171      ;
+; 2.116 ; \check_key_matrix:cnt_key[1]        ; row_tmp[0]                          ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.040      ; 2.171      ;
+; 2.126 ; key_matris_state.re_check_down      ; key_matris_state.check_line_by_line ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.141      ;
+; 2.154 ; key_matris_state.off_twitter        ; \check_key_matrix:cnt_key[0]        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.040     ; 2.129      ;
+; 2.158 ; cnt[1]                              ; row[0]~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.173      ;
+; 2.159 ; \check_key_matrix:delay_cnt[0]      ; \check_key_matrix:delay_cnt[0]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.174      ;
+; 2.175 ; lcd_state.set_DDAd1                 ; lcd_state.Display1                  ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.001      ; 2.191      ;
+; 2.187 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[4]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.202      ;
+; 2.261 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[5]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.276      ;
+; 2.268 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[7]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.283      ;
+; 2.275 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[3]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.290      ;
+; 2.277 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[6]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.292      ;
+; 2.279 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[2]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.294      ;
+; 2.307 ; lcd_state.Display1                  ; lcd_rs~reg0                         ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.001     ; 2.321      ;
+; 2.315 ; key_matris_state.check_line_by_line ; \check_key_matrix:cnt_key[3]        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; -0.040     ; 2.290      ;
+; 2.326 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[0]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.341      ;
+; 2.327 ; lcd_state.clr_Disp                  ; \check_key_matrix:delay_cnt[1]      ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.342      ;
+; 2.341 ; \check_key_matrix:cnt_key[4]        ; \check_key_matrix:cnt_key[4]        ; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 0.000        ; 0.000      ; 2.356      ;
++-------+-------------------------------------+-------------------------------------+--------------------+--------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clkin'                                                                           ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+; -1.583 ; 1.000        ; 2.583          ; Port Rate        ; clkin ; Rise       ; clkin                 ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[0] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[0] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[1] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[1] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[2] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[2] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[3] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[3] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[4] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[4] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[5] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[5] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[6] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[6] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|cnt[7] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|cnt[7] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clkin ; Rise       ; gen_div:gen_1k|tmp    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clkin ; Rise       ; gen_div:gen_1k|tmp    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; clkin|combout         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; clkin|combout         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[0]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[0]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[1]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[1]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[2]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[2]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[3]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[3]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[4]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[4]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[5]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[5]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[6]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[6]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|cnt[7]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|cnt[7]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clkin ; Rise       ; gen_1k|tmp|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clkin ; Rise       ; gen_1k|tmp|clk        ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'gen_div:gen_1k|tmp'                                                                                         ;
++--------+--------------+----------------+------------------+--------------------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+--------------------+------------+-------------------------------------+
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[0]       ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[0]       ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[1]       ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[1]       ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[2]       ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[2]       ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[3]       ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:char_cnt[3]       ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[0]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[0]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[1]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[1]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[2]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[2]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[3]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[3]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[4]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[4]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[5]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[5]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[6]        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:cnt_key[6]        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[0]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[0]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[1]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[1]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[2]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[2]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[3]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[3]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[4]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[4]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[5]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[5]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[6]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[6]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[7]      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:delay_cnt[7]      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[0]          ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[0]          ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[1]          ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[1]          ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[2]          ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; \check_key_matrix:state[2]          ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; cnt[0]                              ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; cnt[0]                              ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; cnt[1]                              ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; cnt[1]                              ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; cnt[2]                              ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; cnt[2]                              ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.check_down         ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.check_down         ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.check_line_by_line ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.check_line_by_line ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.get_key_value      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.get_key_value      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.off_twitter        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.off_twitter        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.re_check_down      ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; key_matris_state.re_check_down      ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[0]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[0]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[1]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[1]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[2]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[2]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[3]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[3]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[4]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[4]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[5]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[5]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[6]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[6]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[7]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_data[7]~reg0                    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_e~reg0                          ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_e~reg0                          ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_rs~reg0                         ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_rs~reg0                         ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.Display1                  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.Display1                  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.Display2                  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.Display2                  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.clr_Disp                  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.clr_Disp                  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DDAd1                 ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DDAd1                 ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DDAd2                 ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DDAd2                 ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DispSwitch            ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_DispSwitch            ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_EntryMd               ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_EntryMd               ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_Func                  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; lcd_state.set_Func                  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; line[3]~reg0                        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; line[3]~reg0                        ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; gen_div:gen_1k|tmp ; Rise       ; line[4]~reg0                        ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; gen_div:gen_1k|tmp ; Rise       ; line[4]~reg0                        ;
++--------+--------------+----------------+------------------+--------------------+------------+-------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Setup Times                                                                           ;
++--------------+--------------------+--------+--------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+--------+--------+------------+--------------------+
+; line_key[*]  ; gen_div:gen_1k|tmp ; 12.999 ; 12.999 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line_key[0] ; gen_div:gen_1k|tmp ; 12.107 ; 12.107 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line_key[1] ; gen_div:gen_1k|tmp ; 12.999 ; 12.999 ; Rise       ; gen_div:gen_1k|tmp ;
+; resetin      ; gen_div:gen_1k|tmp ; 1.196  ; 1.196  ; Rise       ; gen_div:gen_1k|tmp ;
++--------------+--------------------+--------+--------+------------+--------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Hold Times                                                                            ;
++--------------+--------------------+--------+--------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+--------+--------+------------+--------------------+
+; line_key[*]  ; gen_div:gen_1k|tmp ; -4.892 ; -4.892 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line_key[0] ; gen_div:gen_1k|tmp ; -5.002 ; -5.002 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line_key[1] ; gen_div:gen_1k|tmp ; -4.892 ; -4.892 ; Rise       ; gen_div:gen_1k|tmp ;
+; resetin      ; gen_div:gen_1k|tmp ; 0.722  ; 0.722  ; Rise       ; gen_div:gen_1k|tmp ;
++--------------+--------------------+--------+--------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; lcd_data[*]  ; gen_div:gen_1k|tmp ; 9.683 ; 9.683 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[0] ; gen_div:gen_1k|tmp ; 9.069 ; 9.069 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[1] ; gen_div:gen_1k|tmp ; 8.851 ; 8.851 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[2] ; gen_div:gen_1k|tmp ; 9.311 ; 9.311 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[3] ; gen_div:gen_1k|tmp ; 8.851 ; 8.851 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[4] ; gen_div:gen_1k|tmp ; 9.293 ; 9.293 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[5] ; gen_div:gen_1k|tmp ; 9.194 ; 9.194 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[6] ; gen_div:gen_1k|tmp ; 9.683 ; 9.683 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[7] ; gen_div:gen_1k|tmp ; 9.076 ; 9.076 ; Rise       ; gen_div:gen_1k|tmp ;
+; lcd_e        ; gen_div:gen_1k|tmp ; 8.630 ; 8.630 ; Rise       ; gen_div:gen_1k|tmp ;
+; lcd_rs       ; gen_div:gen_1k|tmp ; 9.098 ; 9.098 ; Rise       ; gen_div:gen_1k|tmp ;
+; line[*]      ; gen_div:gen_1k|tmp ; 9.019 ; 9.019 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[0]     ; gen_div:gen_1k|tmp ; 8.703 ; 8.703 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[1]     ; gen_div:gen_1k|tmp ; 8.632 ; 8.632 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[2]     ; gen_div:gen_1k|tmp ; 8.629 ; 8.629 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[3]     ; gen_div:gen_1k|tmp ; 7.908 ; 7.908 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[4]     ; gen_div:gen_1k|tmp ; 7.861 ; 7.861 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[5]     ; gen_div:gen_1k|tmp ; 7.861 ; 7.861 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[6]     ; gen_div:gen_1k|tmp ; 9.019 ; 9.019 ; Rise       ; gen_div:gen_1k|tmp ;
+; row[*]       ; gen_div:gen_1k|tmp ; 8.944 ; 8.944 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[0]      ; gen_div:gen_1k|tmp ; 8.172 ; 8.172 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[1]      ; gen_div:gen_1k|tmp ; 8.611 ; 8.611 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[2]      ; gen_div:gen_1k|tmp ; 8.163 ; 8.163 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[3]      ; gen_div:gen_1k|tmp ; 8.272 ; 8.272 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[4]      ; gen_div:gen_1k|tmp ; 8.944 ; 8.944 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[5]      ; gen_div:gen_1k|tmp ; 8.168 ; 8.168 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[6]      ; gen_div:gen_1k|tmp ; 8.922 ; 8.922 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[7]      ; gen_div:gen_1k|tmp ; 8.236 ; 8.236 ; Rise       ; gen_div:gen_1k|tmp ;
+; row_key[*]   ; gen_div:gen_1k|tmp ; 9.885 ; 9.885 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row_key[0]  ; gen_div:gen_1k|tmp ; 9.869 ; 9.869 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row_key[1]  ; gen_div:gen_1k|tmp ; 9.885 ; 9.885 ; Rise       ; gen_div:gen_1k|tmp ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; lcd_data[*]  ; gen_div:gen_1k|tmp ; 8.851 ; 8.851 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[0] ; gen_div:gen_1k|tmp ; 9.069 ; 9.069 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[1] ; gen_div:gen_1k|tmp ; 8.851 ; 8.851 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[2] ; gen_div:gen_1k|tmp ; 9.311 ; 9.311 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[3] ; gen_div:gen_1k|tmp ; 8.851 ; 8.851 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[4] ; gen_div:gen_1k|tmp ; 9.293 ; 9.293 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[5] ; gen_div:gen_1k|tmp ; 9.194 ; 9.194 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[6] ; gen_div:gen_1k|tmp ; 9.683 ; 9.683 ; Rise       ; gen_div:gen_1k|tmp ;
+;  lcd_data[7] ; gen_div:gen_1k|tmp ; 9.076 ; 9.076 ; Rise       ; gen_div:gen_1k|tmp ;
+; lcd_e        ; gen_div:gen_1k|tmp ; 8.630 ; 8.630 ; Rise       ; gen_div:gen_1k|tmp ;
+; lcd_rs       ; gen_div:gen_1k|tmp ; 9.098 ; 9.098 ; Rise       ; gen_div:gen_1k|tmp ;
+; line[*]      ; gen_div:gen_1k|tmp ; 7.861 ; 7.861 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[0]     ; gen_div:gen_1k|tmp ; 8.703 ; 8.703 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[1]     ; gen_div:gen_1k|tmp ; 8.632 ; 8.632 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[2]     ; gen_div:gen_1k|tmp ; 8.629 ; 8.629 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[3]     ; gen_div:gen_1k|tmp ; 7.908 ; 7.908 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[4]     ; gen_div:gen_1k|tmp ; 7.861 ; 7.861 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[5]     ; gen_div:gen_1k|tmp ; 7.861 ; 7.861 ; Rise       ; gen_div:gen_1k|tmp ;
+;  line[6]     ; gen_div:gen_1k|tmp ; 9.019 ; 9.019 ; Rise       ; gen_div:gen_1k|tmp ;
+; row[*]       ; gen_div:gen_1k|tmp ; 8.163 ; 8.163 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[0]      ; gen_div:gen_1k|tmp ; 8.172 ; 8.172 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[1]      ; gen_div:gen_1k|tmp ; 8.611 ; 8.611 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[2]      ; gen_div:gen_1k|tmp ; 8.163 ; 8.163 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[3]      ; gen_div:gen_1k|tmp ; 8.272 ; 8.272 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[4]      ; gen_div:gen_1k|tmp ; 8.944 ; 8.944 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[5]      ; gen_div:gen_1k|tmp ; 8.168 ; 8.168 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[6]      ; gen_div:gen_1k|tmp ; 8.922 ; 8.922 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row[7]      ; gen_div:gen_1k|tmp ; 8.236 ; 8.236 ; Rise       ; gen_div:gen_1k|tmp ;
+; row_key[*]   ; gen_div:gen_1k|tmp ; 9.869 ; 9.869 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row_key[0]  ; gen_div:gen_1k|tmp ; 9.869 ; 9.869 ; Rise       ; gen_div:gen_1k|tmp ;
+;  row_key[1]  ; gen_div:gen_1k|tmp ; 9.885 ; 9.885 ; Rise       ; gen_div:gen_1k|tmp ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Transfers                                                                     ;
++--------------------+--------------------+----------+----------+----------+----------+
+; From Clock         ; To Clock           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------+--------------------+----------+----------+----------+----------+
+; clkin              ; clkin              ; 101      ; 0        ; 0        ; 0        ;
+; gen_div:gen_1k|tmp ; clkin              ; 1        ; 1        ; 0        ; 0        ;
+; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 13691    ; 0        ; 0        ; 0        ;
++--------------------+--------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------+
+; Hold Transfers                                                                      ;
++--------------------+--------------------+----------+----------+----------+----------+
+; From Clock         ; To Clock           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------+--------------------+----------+----------+----------+----------+
+; clkin              ; clkin              ; 101      ; 0        ; 0        ; 0        ;
+; gen_div:gen_1k|tmp ; clkin              ; 1        ; 1        ; 0        ; 0        ;
+; gen_div:gen_1k|tmp ; gen_div:gen_1k|tmp ; 13691    ; 0        ; 0        ; 0        ;
++--------------------+--------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 183   ; 183  ;
+; Unconstrained Output Ports      ; 27    ; 27   ;
+; Unconstrained Output Port Paths ; 27    ; 27   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
+    Info: Processing started: Fri Dec 09 11:23:42 2016
+Info: Command: quartus_sta CGROM -c CGROM
+Info: qsta_default_script.tcl version: #4
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'CGROM.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name gen_div:gen_1k|tmp gen_div:gen_1k|tmp
+    Info (332105): create_clock -period 1.000 -name clkin clkin
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.460
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -8.460      -350.046 gen_div:gen_1k|tmp 
+    Info (332119):    -2.625       -18.393 clkin 
+Info (332146): Worst-case hold slack is -1.348
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.348        -1.348 clkin 
+    Info (332119):     0.822         0.000 gen_div:gen_1k|tmp 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.583
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.583       -25.307 clkin 
+    Info (332119):    -1.318      -163.432 gen_div:gen_1k|tmp 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 387 megabytes
+    Info: Processing ended: Fri Dec 09 11:23:43 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

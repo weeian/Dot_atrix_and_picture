@@ -1,0 +1,20 @@
+
+State Machine - |CGROM|lcd_state
+Name lcd_state.over lcd_state.Display2 lcd_state.Display1 lcd_state.set_DDAd2 lcd_state.set_DDAd1 lcd_state.set_Func lcd_state.set_EntryMd lcd_state.set_DispSwitch lcd_state.clr_Disp 
+lcd_state.clr_Disp 0 0 0 0 0 0 0 0 0 
+lcd_state.set_DispSwitch 0 0 0 0 0 0 0 1 1 
+lcd_state.set_EntryMd 0 0 0 0 0 0 1 0 1 
+lcd_state.set_Func 0 0 0 0 0 1 0 0 1 
+lcd_state.set_DDAd1 0 0 0 0 1 0 0 0 1 
+lcd_state.set_DDAd2 0 0 0 1 0 0 0 0 1 
+lcd_state.Display1 0 0 1 0 0 0 0 0 1 
+lcd_state.Display2 0 1 0 0 0 0 0 0 1 
+lcd_state.over 1 0 0 0 0 0 0 0 1 
+
+State Machine - |CGROM|key_matris_state
+Name key_matris_state.get_key_value key_matris_state.check_line_by_line key_matris_state.re_check_down key_matris_state.off_twitter key_matris_state.check_down 
+key_matris_state.check_down 0 0 0 0 0 
+key_matris_state.off_twitter 0 0 0 1 1 
+key_matris_state.re_check_down 0 0 1 0 1 
+key_matris_state.check_line_by_line 0 1 0 0 1 
+key_matris_state.get_key_value 1 0 0 0 1 
